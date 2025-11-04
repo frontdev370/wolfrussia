@@ -1,0 +1,165 @@
+body{
+    background-color: #1d1c1c;
+    overflow-x: hidden;
+}
+
+
+.logo{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 15vw;
+}
+
+.logo > a > h2 {
+    font-size: 35px;
+    color: aliceblue;
+    position: relative;
+    bottom: 20px;
+    font-weight: 700;
+}
+
+.logo > a > h2 > span{
+    color: rgb(247, 37, 37);
+}
+
+a{
+    color: aliceblue;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    margin-top: 30px;
+}
+
+nav{
+    margin-left: 10vw;
+}
+
+nav >ul>li a{
+    font-size: 23px;
+    border-bottom: 2px solid transparent;
+    transition: all .3s;
+}
+
+nav >ul>li a:not(:nth-child(1)){
+    margin-left: 30px;
+}
+
+
+@media (hover: hover) {
+    nav > ul>li> a:not(:nth-child(4)):hover{
+        border-bottom-color: aliceblue;
+    }                 /* при наведении в навигации кроме тг лого появляется нижняя линяя */
+    .nav >ul>li a > img:hover {
+        transform: scale(1.3);
+    }
+}
+
+nav > ul>li> a > img{
+    color: aliceblue;
+    position: relative;
+    display: inline;
+    transition: all .3s;
+}
+
+label{
+    display: none;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    row-gap: 10px;
+}
+
+ul > li{
+    margin-left: 40px;
+}
+
+nav{
+    display: block;
+}
+
+#burger-toggle{
+    display: none;
+}
+
+@media (max-width: 1440px) {
+    .logo{
+        margin-left: 3vw;
+    }
+    label{
+        position: absolute;
+        display: block;
+        height: 25px;
+        width: 30px;
+        top: 7vh;
+        right: 3vw;
+    }
+    label::after, label::before, label span{
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: aliceblue;
+        transition: all .3s;
+    }
+    label::before{
+        content: '';
+        top: 0;
+    }
+    label::after{
+        content: '';
+        bottom: 0;
+    }
+    label span{
+        top: 11px;
+        width: 80%;
+        justify-items: center;
+    }
+    #burger-toggle:checked ~ label::after{
+        transform: rotate(45deg);
+        bottom: 10px;
+    }
+    #burger-toggle:checked ~ label::before{
+        transform: rotate(-45deg);
+        top: 12px;
+    }
+    #burger-toggle:checked ~ label span{
+        transform: rotate(-45deg);
+        top: 12px;
+        opacity: 0;
+    }
+    nav{
+        position: fixed;
+        display: block;
+        left: 0;
+        right: 0;
+        padding-top: 100px;
+        z-index: -1;
+        flex-direction: row;
+        text-align: center;
+        top: -120vw;
+        bottom: 100vw;
+        transition: all .3s;
+        margin-left: 0;
+    }
+    nav ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform: translateX(-9vw);
+    }
+
+    nav ul li{
+        margin-bottom: 0px;
+        text-align: center;
+        font-size: 40px;
+        font-weight: 700;
+    }
+    #burger-toggle:checked ~ nav{
+        top: 142px;
+        bottom: 0;
+        z-index: 9999;
+    }
+}
